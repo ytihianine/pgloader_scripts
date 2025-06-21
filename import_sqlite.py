@@ -23,3 +23,7 @@ print(script)
 PGLOADER_SCRIPT_NAME = 'grist.load'
 with open(PGLOADER_SCRIPT_NAME, 'w') as f:
     f.write(script)
+
+# Run pgloader command
+import subprocess
+subprocess.run(['pgloader', PGLOADER_SCRIPT_NAME])
