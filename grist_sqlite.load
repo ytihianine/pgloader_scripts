@@ -1,0 +1,8 @@
+LOAD DATABASE
+     FROM sqlite:///path/to/sqlitefile
+     INTO postgresql://dbURI
+cast type date to date using unix-timestamp-to-timestamptz
+
+WITH include drop, create tables, create indexes, reset sequences
+EXCLUDING TABLE NAMES LIKE '_grist%'
+;
