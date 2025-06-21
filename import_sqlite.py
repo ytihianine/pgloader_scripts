@@ -27,3 +27,8 @@ with open(PGLOADER_SCRIPT_NAME, 'w') as f:
 # Run pgloader command
 import subprocess
 subprocess.run(['pgloader', PGLOADER_SCRIPT_NAME])
+
+
+# Remove script from file system
+import os
+os.remove(PGLOADER_SCRIPT_NAME)
