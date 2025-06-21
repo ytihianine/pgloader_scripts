@@ -18,3 +18,8 @@ script = generate_script(
     db_schema='test_schema'
 )
 print(script)
+
+# Create script file on file system
+PGLOADER_SCRIPT_NAME = 'grist.load'
+with open(PGLOADER_SCRIPT_NAME, 'w') as f:
+    f.write(script)
