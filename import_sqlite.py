@@ -1,4 +1,6 @@
 import textwrap
+import configparser
+
 
 def generate_script(sqlite_path: str, pg_uri: str, db_schema: str) -> str:
     return textwrap.dedent(f"""
@@ -12,10 +14,14 @@ def generate_script(sqlite_path: str, pg_uri: str, db_schema: str) -> str:
         ;
     """)
 
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 script = generate_script(
-    sqlite_path='/sqlite_path/import_grist.grist',
-    pg_uri='postgres:password@localhost:5432/dbname',
-    db_schema='test_schema'
+    sqlite_path=config['sqlite']['sqlite_path'],
+    pg_uri=config['database']['db_uri'],
+    db_schema=config['database']['schema']
 )
 print(script)
 
